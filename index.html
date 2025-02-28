@@ -1,0 +1,47 @@
+<script>
+    // student.js
+
+class Student {
+    constructor(id, name, marks) {
+        this.id = id;
+        this.name = name;
+        this.marks = marks;
+        this.total = this.calculateTotal();
+        this.percentage = this.calculatePercentage();
+        this.grade = this.calculateGrade();
+    }
+
+    calculateTotal() {
+        return this.marks.reduce((acc, mark) => acc + mark, 0);
+    }
+
+    calculatePercentage() {
+        return this.total / this.marks.length;
+    }
+
+    calculateGrade() {
+        if (this.percentage > 90) {
+            return 'A';
+        } else if (this.percentage > 80 && this.percentage <= 90) {
+            return 'B';
+        } else if (this.percentage > 70 && this.percentage <= 80) {
+            return 'C';
+        } else if (this.percentage > 60 && this.percentage <= 70) {
+            return 'D';
+        } else if (this.percentage > 50 && this.percentage <= 60) {
+            return 'E';
+        } else {
+            return 'Fail';
+        }
+    }
+}
+
+// Example usage
+const student1 = new Student(101, "SATHYA", [85, 78, 92, 88, 76]);
+console.log(`Student ID: ${student1.id}`);
+console.log(`Student Name: ${student1.name}`);
+console.log(`Total Marks: ${student1.total}`);
+console.log(`Percentage: ${student1.percentage.toFixed(2)}%`);
+console.log(`Grade: ${student1.grade}`);
+
+</script>
